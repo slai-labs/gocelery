@@ -45,7 +45,7 @@ func (cb *RedisCeleryBroker) SendCeleryMessage(message *CeleryMessage) error {
 	}
 	conn := cb.Get()
 	defer conn.Close()
-	_, err = conn.Do("LPUSH", cb.QueueName, jsonBytes)
+	_, err = conn.Do("LPUSH", message.QueueName, jsonBytes)
 	if err != nil {
 		return err
 	}

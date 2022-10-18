@@ -22,6 +22,7 @@ type CeleryMessage struct {
 	ContentType     string                 `json:"content-type"`
 	Properties      CeleryProperties       `json:"properties"`
 	ContentEncoding string                 `json:"content-encoding"`
+	QueueName       string
 }
 
 func (cm *CeleryMessage) reset() {
